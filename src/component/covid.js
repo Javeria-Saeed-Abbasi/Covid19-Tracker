@@ -14,7 +14,6 @@ const Covid = () =>{
 
         console.log(actualData);
         console.log(actualData[0]);
-
     }
     catch (error){
         console.log(error);
@@ -24,6 +23,21 @@ const Covid = () =>{
      getCovidData();
    }, []);
    
+   const  getTotalCases =async () =>{
+    try{
+      const res = await fetch('https://covid.gov.pk/api/graphs/total_cases'); 
+      const actualData1 = await res.json();
+
+      console.log(actualData1);
+      console.log(actualData1[0]);
+  }
+  catch (error){
+      console.log(error);
+  }
+   }
+   useEffect(() => {
+    getTotalCases();
+  }, []);
     return(
         <div className="wrapper">
             <header>  
@@ -44,7 +58,7 @@ const Covid = () =>{
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="#">Precautions</a>
+            <a className="nav-link" href="#">Preventions</a>
           </li>
 
           <li className="nav-item">
