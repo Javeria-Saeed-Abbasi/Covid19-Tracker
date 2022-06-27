@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from '../images/Virus-pana.png';
 import img1 from '../images/floating-mask.png';
 import img2 from '../images/preventions.jpg';
 import covid from './covid.css';
+import Main_card from "./main_card";
 
 const Covid = () =>{
+  const [data, setData] = useState([]);
+  
+
    const getCovidData =async () => {    
     try{
         const response = await fetch('https://api.covid19api.com/live/country/pakistan'); 
@@ -21,23 +25,33 @@ const Covid = () =>{
    }
    useEffect(() => {
      getCovidData();
+     const province ={
+      totalCases: null,
+      confirmedCases: null,
+      activeCases: null,
+      deaths: null,
+      provinceName: null,
+     }
+     setData(
+      [province]
+     )
    }, []);
    
-   const  getTotalCases =async () =>{
-    try{
-      const res = await fetch('https://covid.gov.pk/api/graphs/total_cases'); 
-      const actualData1 = await res.json();
+  //  const  getTotalCases =async () =>{
+  //   try{
+  //     const res = await fetch('https://covid.gov.pk/api/graphs/total_cases'); 
+  //     const actualData1 = await res.json();
 
-      console.log(actualData1);
-      console.log(actualData1[0]);
-  }
-  catch (error){
-      console.log(error);
-  }
-   }
-   useEffect(() => {
-    getTotalCases();
-  }, []);
+  //     console.log(actualData1);
+  //     console.log(actualData1[0]);
+  // }
+  // catch (error){
+  //     console.log(error);
+  // }
+  //  }
+  //  useEffect(() => {
+  //   getTotalCases();
+  // }, []);
     return(
         <div className="wrapper">
             <header>  
@@ -114,7 +128,12 @@ const Covid = () =>{
                 <div className="d-flex justify-content-center"> 
                 <h1 className="Kdam h-1 py-3">Preventions</h1>
                 </div>
-                <div className="row">
+              
+                <div className="img2 d-flex justify-content-center">
+                  <img src={img2} alt="prevent"/>
+                </div>
+                <Main_card/>
+                {/* <div className="row">
                 <div className="card1 col-lg-4">
                   <div className="card">
                     <div className="card-body">
@@ -142,10 +161,7 @@ const Covid = () =>{
                   </div>
                 </div>
                 </div>
-                </div>
-                <div className="img2 d-flex justify-content-center">
-                  <img src={img2} alt="prevent"/>
-                </div>
+                </div> */}
                 </div>
               
              
