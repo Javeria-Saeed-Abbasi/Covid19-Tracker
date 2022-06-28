@@ -180,13 +180,13 @@ const Covid = () => {
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="#prevent">
                     Preventions
                   </a>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">
+                  <a className="nav-link" aria-current="page" href="#symp">
                     Symptoms
                   </a>
                 </li>
@@ -235,7 +235,7 @@ const Covid = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section id="prevent">
         <div className="sec2 d-flex justify-content-center">
           <div className="wrapper1 container">
             <div className="d-flex justify-content-center">
@@ -364,7 +364,7 @@ const Covid = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section id="symp">
         <div className="symp position-relative"> 
         <div className="d-flex justify-content-center">
           <h2 className="text-white">Symptoms</h2>
@@ -374,15 +374,27 @@ const Covid = () => {
         </div>
           <div className="headache position-absolute">
           <img src={headache} alt="" className=""/>
+          <div className="Kdam text-white h-1 text-center">
+          Headache
+          </div>
           </div>
           <div className="fever position-absolute">
           <img src={fever} alt="" className=""/>
+          <div className="Kdam text-white h-1 text-center">
+          Fever
+          </div>
           </div>
           <div className="cough position-absolute">
           <img src={cough} alt="" className=""/>
+          <div className="Kdam text-white h-1 text-center">
+          Cough          
+          </div>
           </div>
           <div className="sneezing position-absolute">
           <img src={sneezing} alt="" className=""/>
+          <div className="Kdam text-white h-1 text-center">
+          Sneezing
+          </div>
           </div>
 
         </div>
